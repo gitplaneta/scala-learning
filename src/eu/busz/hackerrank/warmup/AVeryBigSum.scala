@@ -16,6 +16,6 @@ class AVeryBigSum {
 
   def diagSum(arr: Array[Int]) = {
     var sum = 0
-    for (i <- 0 until arr.length) sum += arr(i)(i)
+    //for (i <- 0 until arr.length) sum += arr(i)(i)
   }
 }
