@@ -6,7 +6,7 @@ object Solution {
 
   def main(args: Array[String]) {
     val sc = new java.util.Scanner (System.in);
-    val N = sc.nextInt();
+    val N = sc.nextInt()
     val list = new ArrayBuffer[String];
 
     for (n <- 1 to N) {
