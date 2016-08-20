@@ -1,4 +1,4 @@
-package eu.busz.hackerrank.day30
+package main.scala.eu.busz.busz.hackerrank.day30
 
 object Solution {
 

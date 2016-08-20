@@ -1,4 +1,4 @@
-package eu.busz.hackerrank.warmup
+package main.scala.eu.busz.busz.hackerrank.warmup
 
 object DiagonalDifference {
 

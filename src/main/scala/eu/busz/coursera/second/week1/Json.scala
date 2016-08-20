@@ -1,4 +1,4 @@
-package eu.busz.coursera.second.week1
+package main.scala.eu.busz.busz.coursera.second.week1
 
 abstract class JSON
 

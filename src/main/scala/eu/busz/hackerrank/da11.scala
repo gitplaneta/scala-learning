@@ -1,4 +1,4 @@
-package eu.busz.hackerrank
+package main.scala.eu.busz.busz.hackerrank
 
 import java.util.Scanner
 

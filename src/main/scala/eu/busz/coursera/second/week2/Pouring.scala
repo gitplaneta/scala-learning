@@ -1,4 +1,4 @@
-package eu.busz.coursera.second.week2
+package main.scala.eu.busz.busz.coursera.second.week2
 
 class Pouring(capacity: Vector[Int]) {
 

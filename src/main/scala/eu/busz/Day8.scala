@@ -1,4 +1,4 @@
-package eu.busz
+package main.scala.eu.busz.busz
 
 import java.util.Scanner
 

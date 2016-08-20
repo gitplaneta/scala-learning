@@ -1,4 +1,4 @@
-package eu.busz.hackerrank.day7
+package main.scala.eu.busz.busz.hackerrank.day7
 
 object Soultion7 {
 

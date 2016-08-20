@@ -1,4 +1,4 @@
-package eu.busz.hackerrank.Day5
+package main.scala.eu.busz.busz.hackerrank.Day5
 
 import scala.collection.mutable.ArrayBuffer
 
