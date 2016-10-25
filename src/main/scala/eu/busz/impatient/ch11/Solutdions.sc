@@ -23,8 +23,45 @@ class Fraction(n: Int, d: Int) {
   }
 
   def /(that: Fraction): Fraction = {
-    new Fraction(that.num / this.num, that.den / this.den)
+    new Fraction(that.den * this.num, that.num * this.den)
   }
 
+  def +(that: Fraction): Fraction = {
+    new Fraction(that.den * this.num + that.num * this.den,
+      this.den * that.den)
+  }
+
+  def -(that: Fraction): Fraction = {
+    new Fraction(that.den * this.num - that.num * this.den,
+      this.den * that.den)
+  }
+}
+
+//4
+object Money {
+  def apply(a: Int, r: Int): Money = {
+    new Money(a, r)
+  }
+
+  def apply(f: Double): Money = {
+    new Money(f.toInt, (f - f.toInt).toInt * 100)
+  }
+}
+
+class Money(a: Int, r: Int) {
+
+  def +(that: Money): Money = {
+    Money.apply(this.toFloat() + that.toFloat())
+  }
+
+  def -(that: Money): Money = {
+    Money.apply(this.toFloat() - that.toFloat())
+  }
+
+  def ==(that: Money) = that.toFloat() == this.toFloat()
+  def < (that: Money) = this.toFloat() < that.toFloat()
+
+  private def toFloat(): Double = this.a + this.r / 100.0
 
 }
+
