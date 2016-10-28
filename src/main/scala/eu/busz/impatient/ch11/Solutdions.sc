@@ -65,3 +65,31 @@ class Money(a: Int, r: Int) {
 
 }
 
+//5
+class TableBuilder {
+
+  var value = ""
+
+  def |(element: String): TableBuilder = {
+    if (value.isEmpty) value += "<tr>"
+    value += s"<td>$element</td>"
+    this
+  }
+
+  def ||(element: String): TableBuilder = {
+    value += s"</tr><tr><td>$element</td>"
+    this
+  }
+
+  override def toString: String = {
+    s"<table>$value</tr></table>"
+  }
+}
+
+object TableBuilder {
+  def apply(): TableBuilder = {
+    new TableBuilder
+  }
+}
+
+TableBuilder() | "Java" | "Dupa" || "dupa2" | "jazda"
