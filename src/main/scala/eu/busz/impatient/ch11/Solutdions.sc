@@ -3,7 +3,6 @@
 
 //2
 // Problem with operator precedence 5 * 4 ** 5 would be (5 * 4) ** 5
-
 //3
 class Fraction(n: Int, d: Int) {
   private val num: Int = if (d == 0) 1 else n * sign(d) / gcd(n, d);
@@ -93,3 +92,39 @@ object TableBuilder {
 }
 
 TableBuilder() | "Java" | "Dupa" || "dupa2" | "jazda"
+
+class ImmutableTable(table: List[List[String]]) {
+  def |(element: String): ImmutableTable = {
+    new ImmutableTable(table.init :+ (table.last :+ element))
+  }
+
+  def ||(element: String): ImmutableTable = {
+    new ImmutableTable(table :+ (element :: Nil))
+  }
+
+  override def toString: String = {
+    table.flatMap(row => ("<tr>" + row.map("<td>" + _ + "</td>").mkString("") + "</tr>")).mkString("")
+  }
+}
+
+object ImmutableTable {
+  def apply(): ImmutableTable = new ImmutableTable(List(List()))
+}
+
+ImmutableTable() | "Java" | "Dupa" || "dupa2" | "jazda"
+
+class AsciiArt(val art: String) {
+
+  def +(asciiArt: AsciiArt): AsciiArt = {
+    val left = art.split("\n")
+    val right = asciiArt.art.split("\n")
+
+    left.zip(right).map((l: Array[Char],r: Array[Char]) => "")
+  }
+
+  def |(asciiArt: AsciiArt): AsciiArt = {
+    new AsciiArt(asciiArt.art + this.art)
+  }
+
+}
+
