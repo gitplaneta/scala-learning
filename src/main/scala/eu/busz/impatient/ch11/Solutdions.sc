@@ -127,4 +127,3 @@ class AsciiArt(val art: String) {
   }
 
 }
-
