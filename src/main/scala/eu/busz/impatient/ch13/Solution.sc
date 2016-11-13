@@ -47,3 +47,17 @@ def mkString2[T](list: List[T], op: String): String = {
 mkString2(List[Int](1,2,3,4,5), ":")
 
 //6
+val lst = List[Int](12, 344, 1, 0, 9)
+(List[Int]() :\ lst)(_ +: _)
+(List[Int]() :\ lst)((a,b) => a +: b)
+(List[Int]() :\ lst)((a,b) => b :+ a)
+
+(List[Int]() :\ lst)((a,b) => b :+ a)
+
+(lst /: List[Int]())(_ :+ _)
+(List[Int]() /: lst)((x,y) => y +: x)
+
+//lst.foldRight(List[Int])((a,b) => a +: b)
+
+List(1,2,3,4).foldLeft(List(5,6,7,8))((a,b) => b +: a)
+List(1,2,3,4).foldRight(List(5,6,7,8))((a,b) => b :+ a)
