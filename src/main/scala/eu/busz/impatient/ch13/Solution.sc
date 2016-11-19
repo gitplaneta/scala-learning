@@ -1,3 +1,6 @@
+import scala.io.Source
+import scala.collection.immutable.HashMap
+
 import scala.collection.mutable
 
 //1 & 2
@@ -61,3 +64,57 @@ val lst = List[Int](12, 344, 1, 0, 9)
 
 List(1,2,3,4).foldLeft(List(5,6,7,8))((a,b) => b +: a)
 List(1,2,3,4).foldRight(List(5,6,7,8))((a,b) => b :+ a)
+
+//7
+val prices = List(1,2,3,4)
+val quantities = List(10,20,30,40)
+
+
+val fun = new ((Int, Int) => Int) {
+  def apply(a: Int,b: Int): Int = a * b
+}
+
+val fun2 = () => throw new RuntimeException()
+
+val asdf = fun2 _
+
+val xxxxx = fun
+
+val tupFun = ()
+
+val meth3: Tuple3[Int, Int, Int] => String = ((a: Int, b: Int, c: Int)=> "").tupled
+val meth2: Tuple2[Int, Int] => String = ((a: Int, b: Int)=> "").tupled
+
+//(prices zip quantities) map { fun.tupled }
+(prices zip quantities) map{ ((_: Int) * (_: Int)).tupled }
+(prices zip quantities) map( ((a: Int, b: Int) =>  (a*b)).tupled )
+//(prices zip quantities).map( ((_: Double) * (_ :Int)).tupled )
+
+//8
+def to2DArray(col: Int, arr: Array[Double]): Array[Array[Double]] = {
+  arr.grouped(col).toArray
+}
+to2DArray(3,  Array(1, 2, 3, 4, 5, 6)).map(_.mkString(",")).mkString("\n")
+
+// 9
+//Code is not thread safe
+//He could replace it with an atomic Objects (with get & set as atomic op) in his collection
+
+// 10
+val str = "happy days forever!"
+val frequencies = new scala.collection.mutable.HashMap[Char, Int]
+for (c <- str.par) frequencies(c) = frequencies.getOrElse(c, 0) + 1
+frequencies
+
+def mergeMaps(a: scala.collection.mutable.HashMap[Char, Int], b: scala.collection.mutable.HashMap[Char, Int]): scala.collection.mutable.HashMap[Char, Int] = {
+  a.foldLeft(b)( (col, kv) => {
+    b(kv._1) = b.getOrElse(kv._1, 0) + kv._2
+    b
+  })
+}
+
+str.par.aggregate(Map[Char, Int]())((f, c) => f + (c -> (f.getOrElse(c, 0) + 1)),
+  (m1, m2) => m1 ++ m2.map{case (k,v) => k -> (v + m1.getOrElse(k, 0))})
+
+
+(new scala.collection.mutable.HashMap[Char, Int]).getOrElse('c', 0) + 1
