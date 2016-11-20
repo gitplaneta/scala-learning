@@ -118,3 +118,23 @@ str.par.aggregate(Map[Char, Int]())((f, c) => f + (c -> (f.getOrElse(c, 0) + 1))
 
 
 (new scala.collection.mutable.HashMap[Char, Int]).getOrElse('c', 0) + 1
+
+
+
+//4
+def mapNames(names: Array[String], nameMap: Map[String, Int]): Array[Int] = {
+  names.flatMap(nameMap.get(_))
+  //or
+  names.map(nameMap.get(_))
+    .flatMap(a => a)
+}
+
+mapNames(Array("Tom", "Fred", "Harry"), Map("Tom" -> 3, "Dick" -> 4, "Harry" -> 5)).mkString(", ")
+
+//5
+def reduceMkString[T](a: Array[T], sep: String): String = {
+  a.map(_.toString)
+    .reduceLeft(_ + sep + _)
+}
+
+reduceMkString(Array(1, 2, 3, 4, 5, 6), ": ")
