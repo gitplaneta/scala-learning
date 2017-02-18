@@ -1,0 +1,23 @@
+plugins {
+    id 'scala'
+}
+
+group 'busz.eu'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    scalaVersion = '2.12.1'
+}
+
+dependencies {
+    compile "org.scala-lang:scala-library:$scalaVersion"
+
+    testCompile "org.mockito:mockito-all:1.10.19"
+    testCompile "org.scalatest:scalatest_2.12:3.0.1"
+    testCompile "junit:junit:4.12"
+    testCompile "org.mockito:mockito-all:1.10.19"
+}
