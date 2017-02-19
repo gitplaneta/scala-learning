@@ -42,10 +42,25 @@ class RomanNumberConverterTest extends FunSuite with BeforeAndAfter with Matcher
   }
 
   test("Returns roman number for 4 which requires subtraction") {
-
+    rn.convert(4) should be ("IV")
   }
 
-//  test("Returns roman number for '4'") {
+  test("Returns roman number with subtraction notation") {
+    rn.convert(4) should be("IV")
+    rn.convert(9) should be("IX")
+    rn.convert(40) should be("XL")
+    rn.convert(90) should be("XC")
+    rn.convert(400) should be("CD")
+    rn.convert(900) should be("CM")
+  }
+
+  test("Returns roman number for large examples") {
+    rn.convert(2014) should be ("MMXIV")
+    rn.convert(1990) should be ("MCMXC")
+    rn.convert(1954) should be ("MCMLIV")
+    rn.convert(1989) should be ("MCMLXXXIX")
+  }
+    //  test("Returns roman number for '4'") {
 //    rn.convert(4) should be ("IV")
 //  }
 
