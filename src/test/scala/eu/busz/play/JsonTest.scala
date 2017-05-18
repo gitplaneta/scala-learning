@@ -95,6 +95,11 @@ class JsonTest extends FunSuite with BeforeAndAfter with Matchers {
     println(json.validate[Location](locationReads))
   }
 
+  test("Scala compile time macro for creating readers"){
+    implicit val residentReads = Json.reads[Resident]
+    println((json \ "residents")(1).validate[Resident])
+  }
+
 
 }
 
