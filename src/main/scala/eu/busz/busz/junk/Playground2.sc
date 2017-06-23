@@ -4,5 +4,9 @@ object implicitfun {
 
   def smth(y: Int) = y
 
-  smth
+ // smth
 }
+
+val len: String => Int = _.length
+val res3 = List("scala", "cats").map(s => s -> len(s))
+res3.toMap

@@ -16,6 +16,8 @@ ext {
 dependencies {
     compile "org.scala-lang:scala-library:$scalaVersion"
     compile group: 'com.typesafe.play', name: 'play-json_2.12', version: '2.6.0-M7'
+    compile group: 'org.typelevel', name: 'cats-core_2.12', version: '0.9.0'
+
 
     testCompile "org.mockito:mockito-all:1.10.19"
     testCompile "org.scalatest:scalatest_2.12:3.0.1"
