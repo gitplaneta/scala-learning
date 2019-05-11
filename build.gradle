@@ -17,6 +17,12 @@ dependencies {
     compile "org.scala-lang:scala-library:$scalaVersion"
     compile group: 'com.typesafe.play', name: 'play-json_2.12', version: '2.6.0-M7'
     compile group: 'org.typelevel', name: 'cats-core_2.12', version: '0.9.0'
+    compile group: 'org.scalaz', name: 'scalaz-core_2.12', version: '7.3.0-M25'
+    compile group: 'com.typesafe.akka', name: 'akka-actor_2.12', version: '2.5.8'
+    compile group: 'com.typesafe.akka', name: 'akka-persistence_2.12', version: '2.5.8'
+    compile group: 'org.iq80.leveldb', name: 'leveldb', version: '0.7'
+    compile group: 'org.fusesource.leveldbjni', name: 'leveldbjni-all', version: '1.8'
+
 
 
     testCompile "org.mockito:mockito-all:1.10.19"
