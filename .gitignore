@@ -2,3 +2,5 @@
 out
 *.iml
 build/**
+target/**
+project/target/**

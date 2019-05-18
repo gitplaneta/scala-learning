@@ -5,7 +5,7 @@ object Loop extends App {
   val sc = new java.util.Scanner (System.in);
   var N = sc.nextInt();
 
-  for (ln <- io.Source.stdin.getLines) {
+  for (ln <- scala.io.Source.stdin.getLines) {
     var first = ""
     var sec = ""
 
